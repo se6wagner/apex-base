@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ab_AboutPageController</members>
+        <members>ab_BaseContainer</members>
+        <members>ab_BaseContainerAbstract</members>
+        <members>ab_BaseContainerTest</members>
+        <members>ab_BaseController</members>
+        <members>ab_BaseControllerTest</members>
+        <members>ab_BaseObject</members>
+        <members>ab_BaseObjectAbstract</members>
+        <members>ab_BaseObjectTest</members>
+        <members>ab_BaseObjectType</members>
+        <members>ab_CRSTest</members>
+        <members>ab_Exception</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ab_AboutPage</members>
+        <name>ApexPage</name>
+    </types>
+    <version>20.0</version>
+</Package>

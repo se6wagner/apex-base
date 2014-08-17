@@ -1,0 +1,92 @@
+<!--============================================================
+ * apex-base 2011
+ *
+ * http://code.google.com/p/apex-base/
+ *
+ * Code is licensed under "New BSD License". A copy of the license is included in the
+ * ab_AboutPage.page file, included in the release
+ *============================================================
+ * -->
+
+<!--
+ * @author Sebastian Wagner <sbw.dev@gmail.com>
+ * @date 15-05-2011
+ * @description Unit Test for ab_BaseObject and ab_BaseContainer Relationship Methods 
+ * -->
+<apex:page controller="ab_AboutPageController" title="apex-base :: about">
+
+<apex:sectionHeader title="apex-base" subtitle="About"/>
+
+
+
+<apex:pageBlock >
+
+<apex:pageBlockButtons location="top">
+<apex:outputLink value="{!PROJECT_URL}" target="_blank" styleClass="btn" style="text-decoration:none;">Project Home</apex:outputLink>
+<apex:outputLink value="{!PROJECT_URL}issues/list" target="_blank"  styleClass="btn" style="text-decoration:none;">Issues</apex:outputLink>
+<apex:outputLink value="/setup/build/runAllApexTests.apexp" target="_blank" styleClass="btn" style="text-decoration:none;">Run all Tests</apex:outputLink>
+<apex:outputLink value="#license" styleClass="btn" style="text-decoration:none;">View Licene</apex:outputLink>
+</apex:pageBlockButtons>
+
+<apex:pageBlockTable value="{!ClassList}" var="cls">
+
+
+<apex:column headerValue="Actions" style="width: 150px;">
+
+<apex:outputLink value="{!CLASSES_TRUNK_URL_BASE}{!cls.Name}" target="_blank">Google Code</apex:outputLink>
+<apex:outputText value="|" style="margin-left: 5px;margin-right:5px;"/>
+<apex:outputLink value="{!TEST_URL_BASE}class_id={!cls.id}&&class_name={!cls.Name}" rendered="{!CONTAINS(cls.Name,'Test')}" target="_blank">Run Test</apex:outputLink>
+
+</apex:column>
+
+
+<apex:column headerValue="Class Name">
+    <apex:outputLink value="/01pA0000002LbLg" target="_blank" style="font-weight:bold;">{!cls.Name}</apex:outputLink>
+</apex:column>
+
+<apex:column value="{!cls.APIVersion}"/>
+<apex:column value="{!cls.IsValid}"/>
+
+
+<apex:column >
+<apex:outputField value="{!cls.LastModifiedById}"/>
+<apex:outputText value=", "/>
+<apex:outputField value="{!cls.LastModifiedDate}"/>
+</apex:column>
+
+</apex:pageBlockTable>
+
+</apex:pageBlock>
+
+
+<apex:pageBlock title="License - New BSD License">
+<apex:pageBlockSection columns="1">
+<A name="license">License</A>
+Copyright (c) 2011, Sebastian Wagner sbw.dev@gmail.com<br/>
+All rights reserved.<br/>
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:<br/>
+<ul>
+    <li>Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.</li>
+    <li>Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.</li>
+    <li>Neither the name of the authors nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.</li>
+</ul>
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL the COPYRIGHT HOLDER BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</apex:pageBlockSection>
+</apex:pageBlock>
+
+</apex:page>
